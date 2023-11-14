@@ -1,0 +1,29 @@
+<div class="m-3">
+<h1>My tasks</h1>
+
+<div class="border-bottom">
+<ul>
+<% @tasks.each do |task| %>
+<li>
+<div class="check d-flex align-items-center">
+<div class="pe-2">
+<%= form_with model: task do |f| %>
+<%= f.check_box :completed, {}, true, false %>
+<% end  %>
+</div>
+<%= link_to task.title, task_path(task)%>
+</div>
+<%= link_to '✦ <i class="fa-solid fa-trash black"></i>'.html_safe,
+  task_path(task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></li>
+<% end  %>
+</ul>
+</div>
+
+
+<i class="fa-solid fa-circle-plus"></i>
+<%= link_to "Add a new task", new_task_path %>
+</div>
+
+<script></script>

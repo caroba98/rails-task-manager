@@ -1,0 +1,26 @@
+<div class="m-3">
+<h1>Edit Task</h1>
+<div class="border-bottom pb-3 mb-1">
+<%= form_with model: @task do |f| %>
+  <div class="form">
+    <div class="mb-3">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :details %><br>
+      <%= f.text_field :details %>
+    </div>
+
+    <div class="mb-3 form-check">
+      <%= f.check_box :completed, {}, true, false %>
+      <%= f.label :completed %>
+    </div>
+
+      <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<i class="fa-solid fa-arrow-rotate-left"></i><%= link_to "Back to list", tasks_path %>
+</div>

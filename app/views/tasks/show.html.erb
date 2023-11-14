@@ -1,0 +1,20 @@
+<div class="m-3">
+
+<div class="d-flex align-items-center justify-content-between">
+<h1><%= @task.title %></h1>
+<button type="button" class="btn btn-light d-flex"><%= link_to "Edit this task", edit_task_path %></button>
+</div>
+
+<span class="card card-header"><p><%= @task.details %></p></span>
+
+<div class="d-flex justify-content-start mt-3 border-bottom">
+<%= form_with model: @task do |f| %>
+<%= f.check_box :completed, {}, true, false %>
+<% end %>
+<span class="ps-2"><p><%= @completed %></p></span>
+</div>
+
+
+
+<i class="fa-solid fa-arrow-rotate-left"></i><%= link_to "Back to list", tasks_path %>
+</div>
